@@ -18,8 +18,8 @@ const getPokemonImage = (url) => {
 	return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 };
 
-export const getPokemons = async () => {
-	const dataList = await fetch("https://pokeapi.co/api/v2/pokemon").then(
+export const getPokemons = async (url) => {
+	const dataList = await fetch(`https://ocarzpro-ma-exjta.ondigitalocean.app/${url}`).then(
 		(res) => res.json()
 	);
 
@@ -29,7 +29,7 @@ export const getPokemons = async () => {
 		id: getIdFromURL(url),
 		imgUrl: getPokemonImage(url),
 	}));
-	return { ...dataList, results };
+	return dataList;
 };
 
 export const getPokemonByID = async (id) => {

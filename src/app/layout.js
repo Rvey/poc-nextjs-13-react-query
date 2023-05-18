@@ -1,5 +1,5 @@
 import "./globals.css";
-import RQProvider from "./components/RQProvider";
+import Providers from "./providers";
 
 export const metadata = {
 	title: "Create Next App",
@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className="bg-gray-100">
-				<RQProvider>{children}</RQProvider>
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
