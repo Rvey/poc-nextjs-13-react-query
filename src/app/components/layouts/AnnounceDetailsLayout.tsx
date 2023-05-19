@@ -19,6 +19,7 @@ import CarSpecsCard from "../cards/CarSpecsCard";
 import SimilarCarsCarousel from "../Caroussels/SimilarCarsCarousel";
 import { useQuery } from "@tanstack/react-query";
 import { getData, getDataByID } from "@/query";
+import create from "@/query/cookiesSetter";
 
 export default function AnnounceDetailsLayout({ id }: any) {
   let [isOpen, setIsOpen] = useState(false);

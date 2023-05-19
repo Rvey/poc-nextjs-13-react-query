@@ -11,6 +11,7 @@ export default async function AnnounceDetails({ params }) {
     queryKey: ["product", id],
     queryFn: () => getDataByID(`products/${id}`),
   });
+
   const dehydratedState = dehydrate(client, {
     shouldDehydrateQuery: () => true,
   });

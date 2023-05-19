@@ -17,7 +17,7 @@ export default function AnnounceCard({ productsData }: any) {
           <Fragment key={product.id}>
             <div className=" bg-[#e9f1ff] shadow" key={product.id}>
               <Link
-                href={`announce/1`}
+                href={`announce/${product["@id"].replace("/products/", "")}`}
               >
                 <div className="w-[320px] h-[180px] relative">
                   <Image
