@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home() {
 	const client = getQueryClient();
-	// await client.prefetchQuery({
-	// 	queryKey: ["brands"],
-	// 	queryFn: () => getPokemons("brands"),
-	// });
+	await client.prefetchQuery({
+		queryKey: ["brands"],
+		queryFn: () => getPokemons("brands"),
+	});
 	await client.prefetchQuery({
 		queryKey: ["models"],
 		queryFn: () => getPokemons("models"),

@@ -6,11 +6,11 @@ import PokemonCard from "./PokemonCard";
 import Link from "next/link";
 
 const Pokemons = () => {
-  // const { data } = useQuery({
-  //   queryKey: ["brands"],
-  //   queryFn: () => getPokemons("brands"),
-  //   staleTime: 1000 * 60,
-  // });
+  const { data } = useQuery({
+    queryKey: ["brands"],
+    queryFn: () => getPokemons("brands"),
+    staleTime: 1000 * 60,
+  });
   const { data: models } = useQuery({
     queryKey: ["models"],
     queryFn: () => getPokemons("models"),
@@ -27,7 +27,7 @@ const Pokemons = () => {
       <ul className="flex flex-col gap-4 items-center">
         
         <li>brands</li>
-        {/* {JSON.stringify(data)} */}
+        {JSON.stringify(data)}
         <li>models</li>
         {JSON.stringify(models)}
         <li>products</li>
