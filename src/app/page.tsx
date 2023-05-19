@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import { getData } from "./query";
+import { getData, getDataByID } from "./query";
 import { dehydrate, Hydrate } from "@tanstack/react-query";
 import getQueryClient from "./getQueryClient";
 import AnnouncesPageLayout from "./components/layouts/AnnouncesPageLayout";
@@ -10,14 +10,6 @@ export default async function Home() {
   const client = getQueryClient();
 
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-//   await client.prefetchQuery({
-//     queryKey: ["brands"],
-//     queryFn: () => getData("brands"),
-//   });
-  await client.prefetchQuery({
-    queryKey: ["models"],
-    queryFn: () => getData("models"),
-  });
   await client.prefetchQuery({
     queryKey: ["products"],
     queryFn: () => getData("products"),

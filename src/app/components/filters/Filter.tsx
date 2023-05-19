@@ -21,7 +21,7 @@ export default function Filter({
   const [brand, setBrand] = useState(searchParams.get("brand") || null);
   const [city, setCity] = useState(searchParams.get("city") || "");
   // ============== input data ==============
-
+console.log("brand", !brand);
   const { data: brands } = useQuery({
     queryKey: ["brands-filter"],
     queryFn: () => getData(`brands?itemsPerPage=1000`),
@@ -30,8 +30,8 @@ export default function Filter({
 
   const { data: models, refetch: refetchModels } = useQuery({
     queryKey: ["models-filter"],
-    queryFn: () => getData(`models?itemsPerPage=1000&brand=${brand}`),
-    enabled: !!brand,
+    queryFn: () => getData(`models?brand=${brand}`),
+    enabled: !brand,
   });
   const { data: cities, refetch: refetchCities } = useQuery({
     queryKey: ["cities-filter"],
@@ -108,7 +108,7 @@ export default function Filter({
         />
         <AutoComplete
           data={models}
-          isDisabled={!!brand}
+          isDisabled={!brand}
           title="Modèle"
           selectedOption={model}
           setSelectedOption={setModel}

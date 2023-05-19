@@ -1,13 +1,15 @@
 import { dehydrate, Hydrate } from "@tanstack/react-query";
 import getQueryClient from "@/getQueryClient";
 import { getDataByID } from "@/query";
+import AnnounceDetailsLayout from "@/components/layouts/AnnounceDetailsLayout";
 
-const PokemonPage = async ({ params }) => {
+export default async function AnnounceDetails({ params }) {
   const { id } = params;
   const client = getQueryClient();
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   await client.prefetchQuery({
     queryKey: ["product", id],
-    queryFn: () => getDataByID(id),
+    queryFn: () => getDataByID(`products/${id}`),
   });
   const dehydratedState = dehydrate(client, {
     shouldDehydrateQuery: () => true,
@@ -15,11 +17,8 @@ const PokemonPage = async ({ params }) => {
   return (
     <main>
       <Hydrate state={dehydratedState}>
-        <section className="container mx-auto">
-        </section>
+        <AnnounceDetailsLayout id={id} />
       </Hydrate>
     </main>
   );
-};
-
-export default PokemonPage;
+}
