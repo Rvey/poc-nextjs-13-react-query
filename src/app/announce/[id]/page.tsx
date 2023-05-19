@@ -1,13 +1,13 @@
-import getQueryClient, { getPokemonByID } from "@/app/store";
 import { dehydrate, Hydrate } from "@tanstack/react-query";
-import PokemonDetails from "@/app/components/PokemonDetails";
+import getQueryClient from "@/getQueryClient";
+import { getDataByID } from "@/query";
 
 const PokemonPage = async ({ params }) => {
   const { id } = params;
   const client = getQueryClient();
   await client.prefetchQuery({
     queryKey: ["product", id],
-    queryFn: () => getPokemonByID(id),
+    queryFn: () => getDataByID(id),
   });
   const dehydratedState = dehydrate(client, {
     shouldDehydrateQuery: () => true,
@@ -16,7 +16,6 @@ const PokemonPage = async ({ params }) => {
     <main>
       <Hydrate state={dehydratedState}>
         <section className="container mx-auto">
-          <PokemonDetails id={id} />
         </section>
       </Hydrate>
     </main>

@@ -1,25 +1,38 @@
 {
-	"name": "tn-query-example",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@tanstack/react-query": "^4.29.7",
-		"@tanstack/react-query-devtools": "^4.29.7",
-		"eslint": "8.35.0",
-		"eslint-config-next": "^13.3.0",
-		"next": "^13.4.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"autoprefixer": "^10.4.14",
-		"postcss": "^8.4.21",
-		"tailwindcss": "^3.3.1"
-	}
+  "name": "tn-query-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^2.0.17",
+    "@supercharge/strings": "^2.0.0",
+    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query-devtools": "^4.29.7",
+    "@types/react-dom": "18.2.4",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.7",
+    "eslint": "8.35.0",
+    "eslint-config-next": "^13.3.0",
+    "jwt-decode": "^3.1.2",
+    "next": "^13.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-paginate": "^8.2.0",
+    "react-select": "^5.7.3",
+    "swiper": "^9.3.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.1",
+    "@types/react": "18.2.6",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1"
+  }
 }
